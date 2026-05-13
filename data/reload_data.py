@@ -7,20 +7,20 @@ import os
 
 load_dotenv()
 
+from urllib.parse import quote_plus
+
 def get_engine():
 
     DB_HOST = os.getenv("DB_HOST")
     DB_PORT = os.getenv("DB_PORT")
     DB_USER = os.getenv("DB_USER")
-    DB_PASSWORD = os.getenv("DB_PASSWORD")
+
+    # encode special characters in password
+    DB_PASSWORD = quote_plus(os.getenv("DB_PASSWORD"))
+
     DB_NAME = os.getenv("DB_NAME")
 
-    print("DB_HOST =", DB_HOST)
-    print("DB_PORT =", DB_PORT)
-    print("DB_USER =", DB_USER)
-    print("DB_PASSWORD =", DB_PASSWORD)
-    print("DB_NAME =", DB_NAME)
-
+    # build mysql connection string
     url = (
         f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}"
         f"@{DB_HOST}:{DB_PORT}/{DB_NAME}"
