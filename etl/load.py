@@ -4,7 +4,7 @@ import pandas as pd  # data manipulation
 from sqlalchemy import create_engine  # database connection engine
 from dotenv import load_dotenv  # load environment variables
 import os  # access environment variables
-
+from urllib.parse import quote_plus
 load_dotenv()  # load .env file
 
 def get_mysql_engine():
@@ -16,11 +16,15 @@ def get_mysql_engine():
     return create_engine(url)  # return mysql engine
 
 def get_pg_engine():
+    # encode postgres password
+    password = quote_plus(os.getenv('PG_PASSWORD'))
+
     # build postgresql connection string for data warehouse
     url = (
-        f"postgresql+psycopg2://{os.getenv('PG_USER')}:{os.getenv('PG_PASSWORD')}"
+        f"postgresql+psycopg2://{os.getenv('PG_USER')}:{password}"
         f"@{os.getenv('PG_HOST')}:{os.getenv('PG_PORT')}/{os.getenv('PG_NAME')}"
     )
+
     return create_engine(url)  # return postgresql engine
 
 def load_data(df):
