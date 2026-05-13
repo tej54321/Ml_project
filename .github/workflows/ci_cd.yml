@@ -17,8 +17,8 @@ jobs:
       mysql:  # start mysql service for testing
         image: mysql:8.0  # mysql version
         env:
-          MYSQL_ROOT_PASSWORD: 12345  # root password
-          MYSQL_DATABASE: shoppers_db  # database name
+          MYSQL_ROOT_PASSWORD: Tejas@12345  # root password
+          MYSQL_DATABASE: shopper_db1  # database name
         ports:
           - 3306:3306  # expose mysql port
         options: >-
@@ -30,7 +30,7 @@ jobs:
       postgres:  # start postgresql service for warehouse
         image: postgres:15  # postgresql version
         env:
-          POSTGRES_PASSWORD: 12345  # postgres password
+          POSTGRES_PASSWORD: Tejas%40123  # postgres password
           POSTGRES_DB: shoppers_warehouse  # warehouse database name
         ports:
           - 5432:5432  # expose postgresql port
@@ -57,16 +57,17 @@ jobs:
           DB_HOST: 127.0.0.1  # mysql host
           DB_PORT: 3306  # mysql port
           DB_USER: root  # mysql user
-          DB_PASSWORD: 12345  # mysql password
-          DB_NAME: shoppers_db  # mysql database
+          DB_PASSWORD: Tejas@12345  # mysql password
+          DB_NAME: shopper_db1  # mysql database
           PG_HOST: 127.0.0.1  # postgresql host
           PG_PORT: 5432  # postgresql port
           PG_USER: postgres  # postgresql user
-          PG_PASSWORD: 12345  # postgresql password
+          PG_PASSWORD: Tejas%40123  # postgresql password
           PG_NAME: shoppers_warehouse  # postgresql database
           MLFLOW_TRACKING_URI: ./mlruns  # mlflow tracking uri
           MODEL_PATH: ./ml/model.pkl  # model save path
         run: |
+          
           python data/reload_data.py
           python etl/load.py
           python ml/train.py
@@ -76,12 +77,12 @@ jobs:
           DB_HOST: 127.0.0.1  # mysql host
           DB_PORT: 3306  # mysql port
           DB_USER: root  # mysql user
-          DB_PASSWORD: 12345  # mysql password
-          DB_NAME: shoppers_db  # mysql database
+          DB_PASSWORD: Tejas@12345  # mysql password
+          DB_NAME: shopper_db1  # mysql database
           PG_HOST: 127.0.0.1  # postgresql host
           PG_PORT: 5432  # postgresql port
           PG_USER: postgres  # postgresql user
-          PG_PASSWORD: 12345  # postgresql password
+          PG_PASSWORD: Tejas%40123  # postgresql password
           PG_NAME: shoppers_warehouse  # postgresql database
           MLFLOW_TRACKING_URI: ./mlruns  # mlflow tracking uri
           MODEL_PATH: ./ml/model.pkl  # model save path
