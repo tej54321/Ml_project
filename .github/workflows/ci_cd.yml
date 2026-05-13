@@ -20,8 +20,8 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: 12345
-          MYSQL_DATABASE: shoppers_db
+          MYSQL_ROOT_PASSWORD: Tejas@12345
+          MYSQL_DATABASE: shopper_db1
         ports:
           - 3306:3306
         options: >-
@@ -33,7 +33,7 @@ jobs:
       postgres:
         image: postgres:15
         env:
-          POSTGRES_PASSWORD: 12345
+          POSTGRES_PASSWORD: Tejas%40123
           POSTGRES_DB: shoppers_warehouse
         ports:
           - 5432:5432
@@ -73,13 +73,13 @@ jobs:
           DB_HOST: 127.0.0.1
           DB_PORT: 3306
           DB_USER: root
-          DB_PASSWORD: 12345
+          DB_PASSWORD: Tejas@12345
           DB_NAME: shoppers_db
 
           PG_HOST: 127.0.0.1
           PG_PORT: 5432
           PG_USER: postgres
-          PG_PASSWORD: 12345
+          PG_PASSWORD: Tejas%40123
           PG_NAME: shoppers_warehouse
 
           MLFLOW_TRACKING_URI: ./mlruns
@@ -95,13 +95,13 @@ jobs:
           DB_HOST: 127.0.0.1
           DB_PORT: 3306
           DB_USER: root
-          DB_PASSWORD: 12345
-          DB_NAME: shoppers_db
+          DB_PASSWORD: Tejas@12345
+          DB_NAME: shopper_db1
 
           PG_HOST: 127.0.0.1
           PG_PORT: 5432
           PG_USER: postgres
-          PG_PASSWORD: 12345
+          PG_PASSWORD: Tejas%40123
           PG_NAME: shoppers_warehouse
 
           MLFLOW_TRACKING_URI: ./mlruns
