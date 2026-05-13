@@ -67,6 +67,15 @@ jobs:
       - name: Create model directory
         run: |
           mkdir -p ml
+      - name: Wait for databases
+        run: |
+          sleep 20
+
+      - name: Create MySQL database
+        run: |
+          sudo apt-get install -y mysql-client
+
+          mysql -h 127.0.0.1 -P 3306 -u root -p12345 -e "CREATE DATABASE IF NOT EXISTS shoppers_db;"
 
       - name: Setup database and train model
         env:
