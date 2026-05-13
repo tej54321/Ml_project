@@ -34,7 +34,7 @@ jobs:
       postgres:
         image: postgres:15
         env:
-          POSTGRES_PASSWORD: Tejas%40123
+          POSTGRES_PASSWORD: Tejas@123
           POSTGRES_DB: shoppers_warehouse
         ports:
           - 5432:5432
